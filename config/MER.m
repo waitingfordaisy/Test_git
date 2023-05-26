@@ -3,21 +3,19 @@ function [MERc, MERh,Tph,MERsav ,Tpc,figure_comp_fig] = MER(deltaT)
 % input
 % read table
 
-% % deltaT=10;
+% deltaT=10;
 
-% writetable(T,'Excel_Template.xlsx')
-
-% % read names of column
-% % table does not read the first row
-
+% read names of column
+% table does not read the first row
 Tabh = readtable('Table_hot.xlsx');
 Tabc = readtable('Table_cold.xlsx');
 
+b=10;
+a=10;
 IDh = Tabh{:,1};
 Tinh = Tabh{:,2};
 Touth = Tabh{:,3};
 cph = Tabh{:,4};
-% () output element; {} output values
 Enthh = Tabh{:,5};
 
 IDc = Tabc{:,1};
@@ -110,7 +108,7 @@ MERh=enth(2);
 delete Tabh
 delete Tabc
 
-% % composite figure
+% composite figure
 [figure_comp_fig]=composite_curve(resi_segm,cph,cpc,sortTd,Nsort, Nh, Nc,deltaT,N,enth)
 
 end
